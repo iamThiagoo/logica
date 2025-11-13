@@ -1,6 +1,23 @@
 # Vue Dashboard Template
 
+<img src="./public/images/icons/preview.png" />
+
+<center>
+
+<br>
+
+Preview: <a href="https://mycompany-dashboard.vercel.app/">https://mycompany-dashboard.vercel.app/</a>
+
+</center>
+
 Template genérico de dashboard administrativo com Vue 3, TypeScript, Pinia, Vue Router e Nuxt UI v4. O projeto foi preparado para servir como base reutilizável, com autenticação mock local e módulos administrativos prontos para customização.
+
+## Stack principal
+
+- Vue 3 w/ TypeScript Vite, Vue Router & Pinia
+- Nuxt UI v4
+- Tailwind CSS
+- ESLint & Prettier
 
 ## Visão geral
 
@@ -15,7 +32,7 @@ O template mantém a estrutura original do projeto e substitui os módulos espec
 
 Todas as interfaces seguem o padrão visual já existente e utilizam componentes do Nuxt UI.
 
-## Autenticação mock
+## Autenticação
 
 O login funciona localmente, sem backend, usando Pinia para controle de sessão.
 
@@ -24,44 +41,19 @@ O login funciona localmente, sem backend, usando Pinia para controle de sessão.
 
 Os campos da tela de login já são carregados com esses valores por padrão.
 
-## Stack principal
-
-- Vue 3
-- TypeScript
-- Vite
-- Vue Router
-- Pinia
-- Nuxt UI v4
-- Tailwind CSS
-- ESLint
-- Prettier
-
 ## Pré-requisitos
 
 - Node.js 20+
 - pnpm 10+
 
-## Como executar
+## Executar
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-Se precisar de variáveis locais, use o arquivo `.env-example` como base e crie o seu `.env`.
-
-## Scripts disponíveis
-
-```bash
-pnpm dev
-pnpm build
-pnpm preview
-pnpm lint
-pnpm format
-pnpm check
-```
-
-## Estrutura do template
+## Estrutura
 
 ```txt
 src/
@@ -74,10 +66,6 @@ src/
   utils/        # Mocks, tipos, mapas e helpers
 ```
 
-## Dados mockados
-
-Os módulos de Clientes, Leads, Usuários, Drive e Agenda utilizam dados mockados locais para demonstrar fluxos completos sem dependência de backend. Isso facilita a publicação do repositório como template e acelera a customização por outros times.
-
 ## Docker
 
 O projeto possui `Dockerfile` pronto para build e publicação da SPA com Nginx.
@@ -87,22 +75,6 @@ docker build -t vue-dashboard-template .
 docker run --rm -p 8080:80 vue-dashboard-template
 ```
 
-## Como adaptar para o seu projeto
-
-1. Atualize nome, descrição e identidade visual.
-2. Substitua os mocks por chamadas reais de API quando necessário.
-3. Ajuste os módulos e permissões conforme o domínio da sua aplicação.
-4. Revise os textos de interface, metadados e variáveis de ambiente.
-
-## Qualidade
-
-Antes de publicar ou reutilizar o template, execute:
-
-```bash
-pnpm check
-pnpm build
-```
-
 ## Licença
 
-Defina a licença que fizer sentido para o seu repositório antes da publicação no GitHub.
+- [MIT](LICENSE)
