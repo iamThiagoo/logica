@@ -1,0 +1,63 @@
+import type { MeetingRecord } from '@/utils/types/admin';
+import { randomDateWithin7Days } from '@/utils/helpers/shared/date';
+
+const meetings: MeetingRecord[] = [
+  {
+    id: 'meeting-001',
+    title: 'Revisão semanal do pipeline',
+    startTime: randomDateWithin7Days(10, 0),
+    endTime: randomDateWithin7Days(11, 0),
+    description: 'Acompanhamento das oportunidades em andamento e próximos passos.',
+    location: 'Sala Principal',
+    organizer: 'Renata Souza',
+    color: '#93c5fd',
+    avatar: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=256',
+    priority: 'medium',
+    icon: 'i-lucide-briefcase-business',
+    participants: ['renata-souza', 'rafael-lima', 'julia-gomes'],
+  },
+  {
+    id: 'meeting-002',
+    title: 'Alinhamento de onboarding',
+    startTime: randomDateWithin7Days(14, 0),
+    endTime: randomDateWithin7Days(15, 0),
+    description: 'Definição do plano de entrada e responsáveis do novo cliente.',
+    location: 'Sala Criativa',
+    organizer: 'Julia Gomes',
+    color: '#c4b5fd',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256',
+    priority: 'high',
+    icon: 'i-lucide-rocket',
+    participants: ['julia-gomes', 'thiago-mendes'],
+  },
+  {
+    id: 'meeting-003',
+    title: 'Check-in com cliente',
+    startTime: randomDateWithin7Days(9, 30),
+    endTime: randomDateWithin7Days(10, 30),
+    description: 'Revisão de entregas recentes e próximos marcos do projeto.',
+    location: 'Videoconferência',
+    organizer: 'Rafael Lima',
+    color: '#fcd34d',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256',
+    priority: 'medium',
+    icon: 'i-lucide-video',
+    participants: ['rafael-lima', 'renata-souza'],
+  },
+  {
+    id: 'meeting-004',
+    title: 'Retrospectiva operacional',
+    startTime: randomDateWithin7Days(16, 0),
+    endTime: randomDateWithin7Days(17, 30),
+    description: 'Discussão sobre gargalos, aprendizados e plano de melhoria contínua.',
+    location: 'Auditório',
+    organizer: 'Thiago Mendes',
+    color: '#fca5a5',
+    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=256',
+    priority: 'low',
+    icon: 'i-lucide-bar-chart-3',
+    participants: ['thiago-mendes', 'beatriz-rocha'],
+  },
+];
+
+export default meetings;

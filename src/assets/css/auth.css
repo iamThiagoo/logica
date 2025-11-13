@@ -1,0 +1,140 @@
+.card-box-shadow {
+  box-shadow: 4px 4px 25px 0 rgba(0, 0, 0, 0.15);
+}
+
+.animated-draw {
+  fill: none;
+  stroke: #ddd;
+  stroke-width: 1;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawAndFill 4s ease-in infinite;
+}
+
+.brand-logo {
+  position: relative;
+  top: 20px;
+  animation: logoToTop 2s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeIn 0.2s forwards;
+}
+
+#typedtext {
+  position: relative;
+  display: inline-flex;
+}
+
+.brand-line {
+  opacity: 0;
+  animation: drawLine 2s forwards;
+  animation-delay: 3s;
+  position: relative;
+  top: -65px;
+}
+
+.subtitle-container {
+  width: 180% !important;
+}
+
+@keyframes logoToTop {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-90px);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes drawLine {
+  0% {
+    stroke-dasharray: 230;
+    stroke-dashoffset: 230;
+  }
+
+  100% {
+    stroke-dasharray: 230;
+    stroke-dashoffset: 0;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 980px) and (max-width: 1280px) {
+  .box {
+    zoom: 1.1;
+  }
+
+  .brand-line {
+    top: -38px;
+  }
+
+  .subtitle-container {
+    top: -1.25rem;
+  }
+
+  @keyframes logoToTop {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-60px);
+    }
+  }
+}
+
+@keyframes drawAndFill {
+  0% {
+    stroke-dashoffset: 1000;
+    fill: #aeb0b3;
+    fill-opacity: 0;
+  }
+
+  60% {
+    stroke-dashoffset: 0;
+    fill: #aeb0b3;
+    fill-opacity: 0.5;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    fill: #aeb0b3;
+    fill-opacity: 1;
+  }
+}
+
+@media (min-width: 980px) and (max-width: 1280px) {
+  .box {
+    zoom: 1.08;
+  }
+}
+
+@media (max-width: 980px) {
+  .box {
+    zoom: 0.92;
+  }
+}
+
+@media (max-width: 790px) {
+  .box {
+    zoom: 0.75;
+  }
+}
+
+@media (max-height: 720px) {
+  .box {
+    zoom: 0.8;
+  }
+}

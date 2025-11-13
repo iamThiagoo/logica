@@ -1,0 +1,17 @@
+{
+  "files": [],
+  "compilerOptions": {
+    "types": ["node", "vite/client"],
+    "strict": false,
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "vueCompilerOptions": {
+    "strictTemplates": false
+  },
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
+}
