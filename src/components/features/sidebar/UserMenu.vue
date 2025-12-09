@@ -26,9 +26,9 @@
 
       <template #default>
         <Transition name="fade-slide">
-          <div v-if="!collapsed" class="flex flex-col flex-start text-left -ml-0.5 overflow-x-hidden transition-all duration-300 ease-in-out">
+          <div v-if="!collapsed" class="flex truncate flex-col flex-start text-left -ml-0.5 overflow-x-hidden transition-all duration-300 ease-in-out">
             <span>{{ user.name }}</span>
-            <p class="text-xs text-muted ml-0.5">
+            <p class="text-xs truncate text-muted ml-0.5">
               {{ user.email }}
             </p>
           </div>

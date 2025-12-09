@@ -52,18 +52,18 @@
             </UButton>
           </Form>
 
-          <div class="relative mt-4 xl:mt-6">
-            <USeparator label="OU ACESSE COM" :ui="{ label: 'text-sm text-zinc-400 border-red-800!' }" color="neutral" />
+          <div class="relative mt-4 xl:mt-5">
+            <USeparator label="OU" :ui="{ label: 'text-sm text-zinc-400 border-red-800!' }" color="neutral" />
 
-            <section class="mt-4 xl:mt-6 grid grid-cols-2 gap-3">
-              <button type="submit" className="btn-scale text-base flex w-full cursor-pointer items-center justify-center gap-3 rounded-xl border border-slate-200 px-4 py-3 text-nowrap font-bold text-slate-700 shadow-sm transition-all hover:border-slate-300 hover:bg-slate-50">
+            <section class="mt-4 xl:mt-5 grid grid-cols-1 gap-4">
+              <button type="button" class="btn-scale text-base flex w-full cursor-pointer items-center justify-center gap-3 rounded-xl border border-slate-200 px-4 py-3 text-nowrap font-bold text-slate-700 shadow-sm transition-all hover:border-slate-300 hover:bg-slate-50" @click="onSocialAuthClick('Google')">
                 <UIcon name="flat-color-icons:google" class="size-5 xl:size-6" />
-                Google
+                Acesse com Google
               </button>
 
-              <button type="submit" className="btn-scale cursor-pointer text-base flex w-full items-center justify-center gap-3 rounded-xl bg-[#1877F2] px-4 py-3 text-nowrap font-bold text-white shadow-sm shadow-blue-200 transition-all hover:bg-[#166fe5]">
+              <button type="button" class="btn-scale cursor-pointer text-base flex w-full items-center justify-center gap-3 rounded-xl bg-[#1877F2] px-4 py-3 text-nowrap font-bold text-white shadow-sm shadow-blue-200 transition-all hover:bg-[#166fe5]" @click="onSocialAuthClick('Facebook')">
                 <UIcon name="logos:facebook" class="size-5 relative -top-0.5 xl:size-6" />
-                Facebook
+                Acesse com Facebook
               </button>
             </section>
           </div>
@@ -76,7 +76,8 @@
 
 <script setup lang="ts">
 import { Form, Field } from 'vee-validate';
-import { isLocalAdminCredentials, LOCAL_ADMIN_PASSWORD, LOCAL_ADMIN_TOKEN, LOCAL_ADMIN_USERNAME, loginRedirect } from '@/utils/helpers/app/auth';
+import { isLocalAdminCredentials, LOCAL_ADMIN_PASSWORD, LOCAL_ADMIN_TOKEN, LOCAL_ADMIN_USERNAME, loginRedirect, showInvalidLoginToast, showSocialAuthUnavailableToast } from '@/utils/helpers/app/auth';
+import type { AuthSocialProvider } from '@/utils/helpers/app/auth';
 import { UserRoundX } from 'lucide-vue-next';
 import router from '@/router';
 import { showToast } from '@/utils/helpers/app/toast';
@@ -92,6 +93,10 @@ const username = ref<string>(LOCAL_ADMIN_USERNAME);
 const password = ref<string>(LOCAL_ADMIN_PASSWORD);
 const userStore = useAuthStore();
 const bgEl = ref<HTMLDivElement | null>(null);
+
+const onSocialAuthClick = (provider: AuthSocialProvider) => {
+  showSocialAuthUnavailableToast(provider);
+};
 
 const focusField = (field: 'username' | 'password') => {
   requestAnimationFrame(() => {
@@ -130,10 +135,13 @@ const onSubmit = async () => {
       loginRedirect(router);
       return;
     }
-  } catch (err: any) {
+
+    showInvalidLoginToast();
+    focusField('password');
+  } catch {
     showToast({
-      message: 'Use as credenciais admin / admin para acessar o template.',
-      title: 'Usuário ou senha inválidos.',
+      message: 'Nao foi possivel concluir o login. Tente novamente em instantes.',
+      title: 'Falha ao entrar.',
       type: 'error',
       icon: UserRoundX,
     });

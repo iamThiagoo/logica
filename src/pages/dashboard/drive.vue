@@ -10,7 +10,7 @@
     :show-export-button="false"
     :context-menu-items-fn="getRowItems"
     :pinned-columns="{ right: ['actions'] }"
-    create-button-label="Novo Upload"
+    create-button-label="Novo"
     :on-mounted="handleTableMounted"
     @create="handleCreate"
     @contextmenu="handleContextMenu"

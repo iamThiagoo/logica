@@ -12,7 +12,7 @@
     :context-menu-items-fn="getRowItems"
     :pinned-columns="{ right: ['actions'] }"
     :show-export-button="false"
-    create-button-label="Novo Usuário"
+    create-button-label="Novo"
     :on-mounted="handleTableMounted"
     @create="handleCreate"
     @contextmenu="handleContextMenu"

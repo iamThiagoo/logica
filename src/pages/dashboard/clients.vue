@@ -12,16 +12,11 @@
     :context-menu-items-fn="getRowItems"
     :pinned-columns="{ left: ['favorite'], right: ['actions'] }"
     :show-export-button="false"
-    create-button-label="Novo Cliente"
+    create-button-label="Novo"
     :on-mounted="handleTableMounted"
     @create="handleCreate"
     @contextmenu="handleContextMenu"
-  >
-    <template #extra-filters>
-      <UButton size="lg" color="neutral" :variant="favoritesOnly ? 'soft' : 'outline'" icon="i-lucide-star" label="Favoritos" class="w-auto" data-table-favorites-trigger @click="toggleFavoritesOnly" />
-    </template>
-  </BaseDataTablePage>
-
+  />
   <UModal v-model:open="isDeleteOpen" title="Excluir Cliente" :ui="{ footer: 'justify-end' }">
     <template #body>
       <p class="text-gray-700 dark:text-gray-300">
@@ -169,7 +164,7 @@ const columns: TableColumn<any>[] = [
         variant: 'ghost',
         color: 'neutral',
         size: 'xs',
-        class: isFavorite(row) ? 'text-amber-500 hover:text-amber-600' : 'text-muted hover:text-amber-500',
+        class: isFavorite(row) ? 'text-amber-500 hover:text-amber-600' : 'mx-auto text-muted hover:text-amber-500',
         'aria-label': isFavorite(row) ? 'Remover dos favoritos' : 'Adicionar aos favoritos',
         onClick: (event: MouseEvent) => {
           event.stopPropagation();

@@ -26,30 +26,6 @@
               <div class="hidden 2xl:flex items-center gap-3">
                 <slot name="actions" />
 
-                <!-- <UButton
-                  v-if="showViewModeToggle"
-                  size="lg"
-                  :icon="
-                    viewMode === 'table'
-                      ? 'i-lucide-layout-grid'
-                      : 'i-lucide-table-properties'
-                  "
-                  color="neutral"
-                  variant="outline"
-                  class="cursor-pointer"
-                  @click="toggleViewMode"
-                >
-                  <UTooltip>
-                    <template #content>
-                      {{
-                        viewMode === 'table'
-                          ? 'Visualizar em cards'
-                          : 'Visualizar em tabela'
-                      }}
-                    </template>
-                  </UTooltip>
-                </UButton> -->
-
                 <slot name="export-button">
                   <UPopover v-if="showExportButton" :popper="{ placement: 'bottom-end' }">
                     <UButton size="lg" icon="i-lucide-download" color="neutral" variant="outline" class="cursor-pointer">

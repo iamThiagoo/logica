@@ -42,7 +42,7 @@ const firstTypingSpeed = 70;
 let firstCharIndex = 0;
 const firstTypedChars = ref<string[]>([]);
 
-const secondMessage = `Vue \u2022 Nuxt UI Template`;
+const secondMessage = `Vue \u2022 Nuxt UI \u2022 Shadcn Vue`;
 const secondTypingSpeed = 70;
 let secondCharIndex = 0;
 const secondTypedChars = ref<string[]>([]);

@@ -63,7 +63,7 @@
                     }"
                   />
 
-                  <UButton size="lg" color="primary" icon="i-lucide-plus" class="w-auto btn-plus bg-primary-600 dark:text-gray-100 hover:text-white flex" label="Criar Nova" @click="openEventModal()">
+                  <UButton size="lg" color="primary" icon="i-lucide-plus" class="w-auto btn-plus bg-primary-600 dark:text-gray-100 hover:text-white flex" label="Nova" @click="openEventModal()">
                     <template #leading>
                       <lord-icon trigger="hover" target=".btn-plus" :colors="`primary:#fff`" src="/lord-icon/plus.json" class="h-5 w-5" />
                     </template>
